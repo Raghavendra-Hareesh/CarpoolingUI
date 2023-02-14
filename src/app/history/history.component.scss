@@ -1,0 +1,31 @@
+.section{
+    width: 35vw;
+
+    p{
+        margin: 2.2em 5em 1em 5em;
+        width: fit-content;
+        color: white;
+        padding: 0.4em 2.3em;
+    }
+
+    .purple{
+        background-color: var(--color2);
+    }
+
+    .yellow{
+        background-color: var(--color1);
+    }
+
+    .cards{
+        display: flex;
+        justify-content: center;
+        margin-top: 0.5em;
+    }
+}
+
+.bgImg{
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    z-index: -1;
+}

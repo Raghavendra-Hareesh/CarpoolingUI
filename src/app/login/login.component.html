@@ -1,0 +1,22 @@
+<div class="" class="sign-up-form pt-5">
+    <h2 class="pt-3">Log In</h2>
+    <div class="d-flex justify-content-center"><hr class="line"></div>
+    <form>
+        <div class="form-floating mb-3">
+            <input type="email" class="form-control rounded" id="floatingInput" placeholder="Enter Email Id">
+            <label for="floatingInput">Enter Email Id</label>
+        </div>
+        <div class="form-floating mb-3 d-flex">
+            <input [type]="inpType1" class="form-control" id="floatingPassword2" placeholder="Confirm Password">
+            <div class="eye">
+                <div *ngIf="flag1" class="bi bi-eye-fill text-secondary" type="button" (click)="changeType1()"></div>
+                <div *ngIf="!flag1" class="bi bi-eye-slash-fill text-secondary" type="button" (click)="changeType1()"></div>
+            </div>
+            <label for="floatingPassword2">Enter Password</label>
+        </div>
+        <button>Submit</button>
+    </form>
+    <p>Not a Member Yet? <a type="button" routerLink="/signup">SIGN UP</a></p>
+    <img src="../../assets/imgg2.png" class="image img-fluid">
+</div>
+

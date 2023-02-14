@@ -1,0 +1,14 @@
+<div class="header d-flex dropdown">
+    <img src="../../assets/logo.png" class="logo">
+    <div class="d-flex">
+        <p class="UserName" (click)="fun()" type="button">{{UserName}}</p>
+        <img src="../../assets/user.png" class="rounded img-fluid userImg dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+        </ul>
+    </div>
+</div>
+
+<router-outlet></router-outlet>

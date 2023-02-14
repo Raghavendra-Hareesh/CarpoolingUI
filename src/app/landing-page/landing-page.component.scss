@@ -1,0 +1,35 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.logo{
+    height: 4em;
+}
+
+.desc{
+    
+    height: 100vh;
+    padding-left: 4em;
+    padding-top: 1.5em;
+    
+    p{
+        font-weight: 800;
+        font-size: 5.2vw;
+        font-style: italic;
+        padding: 0;
+        margin-top: -21px;
+    }
+
+    .title1{
+        color: var(--color1);
+    }
+
+    .title2{
+        color: var(--color2);
+    }
+
+    span{
+        color: #292939e3;
+    }
+}

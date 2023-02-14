@@ -1,0 +1,79 @@
+body{
+    height: 100vh;    
+}
+
+h2{
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.line{
+    border-top: 5px solid white;
+    display: block;
+    width: 3em;
+    margin-top: -0.5em;
+    border-radius: 10px;
+}
+
+.sign-up-form{
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    background-color: var(--color1);
+    
+
+    form{
+        width: 70%;
+        margin: 1em auto;
+
+        input{
+            height: 3.5em;
+            border-radius: 5px 0 0 5px;
+            border: none;
+        }
+
+        button{
+            background-color: var(--color2);
+            color: white;
+            border: none;
+            padding: 0.5em 2em;
+            border-radius: 20px;
+            margin-bottom: 1em;
+        }
+    }
+
+    p{
+        margin-top: 0.8em;
+        color: white;
+
+        a{
+            font-weight: bold;
+            text-decoration: underline;
+            letter-spacing: 1px;
+            color: white;
+        }
+    }
+
+    .eye{
+        display: flex;
+        align-items: center;
+        padding-right: 0.5em;            
+        background-color: white;
+        height: 4em;
+        border-radius: 0 3px 3px 0;
+    }
+}
+
+.image
+{
+    width: 100%;
+}
+
+
+.form-control:focus {
+    border-color: none;
+    box-shadow: none;
+  }

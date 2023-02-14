@@ -1,0 +1,214 @@
+.filter-section{
+    width: 35vw;
+}
+
+.filter-title
+{
+    justify-content: space-between;
+
+    p{
+        line-height: 1em;
+    }
+
+    .toggleBtn{
+        line-height: 1em;
+        color: var(--color1);
+        margin-bottom: -15px;
+        transform: rotateY(180deg);
+    }    
+}
+
+.bgImg{
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    z-index: -1;
+}
+
+form
+{
+    width: 20em;
+    padding-top: 1em;
+
+    .label{
+        margin-bottom: -7px;
+        font-size: smaller;
+        color: gray;
+        padding: 0;
+    }
+
+}
+
+.inpBox{
+        border-radius: 0;
+        padding-bottom: 1;
+        padding-left: 0;
+        padding-top: 1;
+        border: none; 
+        font-size: small;
+        height: 3em;    
+        border-bottom: 1px solid gray;
+    }
+
+.form-floating{
+    label{
+        margin: -0.9em;
+    }
+}
+
+
+.timeFilter{
+    grid-template-columns: repeat(3,7.5em);
+    gap: 0.5em;
+    
+    .timeBtn{
+        letter-spacing: 1px;
+        margin-right: 1em;
+        font-size: 0.8em;
+        font-weight: 400;
+        border: 1px solid var(--color2);
+        border-radius: 2em;
+        padding: 0.3em 0.3em;
+        align-items: center;
+        text-align: center;
+    }
+    
+    // .timeBtn:focus{
+    //     background-color: var(--color2);
+    //     color: white;
+    // }
+}
+
+.inactive{
+    color: black;
+    background-color: white;
+}
+
+.active{
+    background-color: var(--color2);
+    color: white;
+}
+
+.submitBtn{
+    padding: 0.8em 2em;
+    border: none;
+    border-radius: 1.7em;
+    margin: 1em;
+    background-color: var(--color1);
+    color: white;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-left: 0;
+}
+
+.caption{
+    margin-top: -10px;
+}
+
+.filterBox{
+    box-shadow: 1px 1px 20px rgba(128, 128, 128, 0.293);
+    height: 35em;
+}
+
+.dots{
+    text-align: center;
+    margin-top: 2em;
+
+    .bi{
+        color: var(--color2);
+        font-size: 0.9em;
+        margin-top: -0.5em;
+    }
+
+    .small{
+        font-size: 0.5em;
+        opacity: 50%;        
+    }
+
+    .bi-geo-alt-fill{
+        font-size: 1.2em;
+        margin-top: 0;
+    }
+}
+
+
+.nextBtn{
+    width: 100%;
+    text-align: right;
+    font-size: medium;
+    font-weight: bold;
+    color: var(--color2);
+    letter-spacing: 1px;
+}
+
+.seatsSection{
+    justify-content: space-between;
+
+    .seatsBtn{
+        border: 1px solid gray;
+        padding: 0.5em 1em;
+        border-radius: 50%;
+        margin-right: 1em;
+        text-decoration: none;
+    }
+}
+
+.stopsInput{
+    padding-top: 0.8em;
+    height: 15em;
+    overflow: scroll;
+    
+    .form-control{
+        width: 22em;
+        height: 2.8em;
+    }
+
+    .dots{
+        margin-left: 1em;        
+        margin-top: 0;
+    }
+}
+
+.stopsInput::-webkit-scrollbar{
+    width: 4px;
+}
+.stopsInput::-webkit-scrollbar-thumb {
+    background-color: darkgrey;
+    border-radius: 2px;
+}
+
+.priceInput{
+    width: 3em;
+    margin-left: 2em;
+    border: none;
+    padding: 0;
+    background: none;
+}
+
+.priceInput:focus{
+    border-color: none;
+    box-shadow: none;
+}
+
+.addBtn{
+    border: none;
+    height: fit-content;
+    margin-top: auto;
+    padding-bottom: 0.5em;
+    font-size: large;
+    background:none;
+    // border-bottom: 1px solid gray;
+    color: var(--color2);
+    margin-left: -1em;
+}
+
+.form-control:focus {
+    border-color: none;
+    box-shadow: none;
+    border-bottom: 2px solid rgb(3, 146, 223);
+
+    .addBtn
+    {
+        border-bottom: 2px solid rgb(3, 146, 223);
+    }
+}

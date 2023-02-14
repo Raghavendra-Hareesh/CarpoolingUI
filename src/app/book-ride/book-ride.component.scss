@@ -1,0 +1,156 @@
+.filter-title
+{
+    justify-content: space-between;
+
+    p{
+        line-height: 1em;
+    }
+
+    .toggleBtn{
+        line-height: 1em;
+        color: var(--color2);
+        margin-bottom: -15px;
+    }    
+}
+
+.bgImg{
+    position: fixed;
+    bottom: 0;
+    z-index: -1;
+}
+
+form
+{
+    width: 20em;
+    padding-top: 1em;
+
+    .label{
+        margin-bottom: -7px;
+        font-size: smaller;
+        color: gray;
+        padding: 0;
+    }
+
+}
+
+.form-control{
+        border-radius: 0;
+        padding-bottom: 1;
+        padding-left: 0;
+        padding-top: 1;
+        border: none;
+        border-bottom: 1px solid black;    
+        font-size: small;
+        height: 3em;    
+    }
+
+.form-floating{
+    label{
+        margin: -0.9em;
+    }
+}
+
+.timeFilter{
+    grid-template-columns: repeat(3,7.5em);
+    gap: 0.5em;
+    a{
+        letter-spacing: 1px;
+        margin-right: 1em;
+        font-size: 0.8em;
+        font-weight: 400;
+        border: 1px solid var(--color2);
+        border-radius: 2em;
+        padding: 0.3em 0.3em;
+        align-items: center;
+        text-align: center;
+        text-decoration: none;
+    }
+}
+
+.inactive{
+    color: black;
+}
+
+.active{
+    background-color: var(--color2);
+    color: white;
+}
+
+.submitBtn{
+    padding: 0.8em 2em;
+    border: none;
+    border-radius: 1.7em;
+    margin: 1em;
+    background-color: var(--color1);
+    color: white;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-left: 0;
+}
+
+.caption{
+    margin-top: -10px;
+}
+
+.filterBox{
+    box-shadow: 1px 1px 20px rgba(128, 128, 128, 0.293);
+}
+
+.dots{
+    text-align: center;
+    margin-top: 2em;
+
+    .bi{
+        color: var(--color2);
+        font-size: 0.9em;
+        margin-top: -0.5em;
+    }
+
+    .small{
+        font-size: 0.5em;
+        opacity: 50%;        
+    }
+
+    .bi-geo-alt-fill{
+        font-size: 1.2em;
+        margin-top: 0;
+    }
+}
+
+.filtered-rides-title{
+    color: var(--color2);
+    letter-spacing: 2px;
+}
+
+.filtered-rides{
+    grid-template-columns: repeat(2,auto);
+    gap: 4em;
+    height: fit-content;
+    margin-top: 1.8em;
+}
+
+.filter-section{
+    width: 35vw;
+    height: 35em;
+}
+
+.form-control:focus {
+    border-color: none;
+    box-shadow: none;
+    border-bottom: 2px solid rgb(3, 146, 223);
+  }
+
+.filteredCards{
+    height: 75vh;
+    overflow: scroll;
+    padding-right: 1em;
+}
+
+.filteredCards::-webkit-scrollbar{
+    width: 4px;
+}
+
+.filteredCards::-webkit-scrollbar-thumb {
+    background-color: darkgrey;
+    border-radius: 2px;
+}

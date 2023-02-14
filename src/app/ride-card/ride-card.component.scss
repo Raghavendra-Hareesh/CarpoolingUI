@@ -1,0 +1,50 @@
+.ride-card{
+    width: 27em;
+    border-radius: 0.5em;
+    background-color: white;
+    box-shadow: 1px 1px 7px rgba(128, 128, 128, 0.296);
+
+    .card-top{
+        justify-content: space-between;
+
+        h1{
+            line-height: 40px;
+        }
+    }
+
+    p{
+        margin-top: -14px;
+        font-weight: 400;
+    }
+
+    .h{
+        font-size: smaller;
+        font-weight: 500;
+        opacity: 70%;
+    }
+
+    .ride-details{
+        margin-top: 1em;
+        grid-template-columns: repeat(3,7.7em);
+        gap: 0.5em;
+    }
+}
+
+.dots-h{
+    text-align: center;
+    gap: 0.5em;
+
+    .bi{
+        color: var(--color2);
+        font-size: 0.9em;
+    }
+
+    .small{
+        font-size: 0.5em;
+        opacity: 50%;  
+    }
+
+    .bi-geo-alt-fill{
+        font-size: 1.2em;
+    }
+}

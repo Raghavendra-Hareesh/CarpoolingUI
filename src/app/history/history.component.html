@@ -1,0 +1,11 @@
+<img src="../../assets/img4.png" class="bgImg">
+<div class="d-flex">
+    <div class="section ">
+        <p class="form-control purple">Booked Rides</p>
+        <div *ngFor="let items of [].constructor(2)" class="cards"><app-ride-card></app-ride-card></div>
+    </div>
+    <div class="section">
+        <p class="form-control yellow">Offered Rides</p>
+        <div *ngFor="let items of [].constructor(2)" class="cards"><app-ride-card></app-ride-card></div>
+    </div>
+</div>
