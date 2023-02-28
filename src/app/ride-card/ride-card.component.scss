@@ -1,38 +1,118 @@
+@import url(../offer-ride/offer-ride.component.scss);
+
 .ride-card{
     width: 27em;
     border-radius: 0.5em;
     background-color: white;
-    box-shadow: 1px 1px 7px rgba(128, 128, 128, 0.296);
+    box-shadow: 1px 1px 7px rgba(128, 128, 128, 0.296);    
 
-    .card-top{
-        justify-content: space-between;
+    .front{
+        height: 14em;
+        cursor: pointer;
 
-        h1{
-            line-height: 40px;
+        .card-top{
+            justify-content: space-between;
+    
+            h1{
+                line-height: 40px;
+            }
+        }
+    
+        p{
+            margin-top: -14px;
+            font-weight: 400;
+        }
+    
+        .h{
+            font-size: smaller;
+            font-weight: 500;
+            opacity: 70%;
+        }
+    
+        .ride-details{
+            margin-top: 1em;
+            grid-template-columns: repeat(3,7.7em);
+            gap: 0.5em;
+        }
+    }    
+
+    // .middle{
+    //     height: 14em;
+    //     display: flex;
+    //     justify-content: center;
+    //     // padding-top: 5.3em;
+
+    //     .dots-h{
+    //         margin-top: -2em;
+    //         margin-left: -2.6em;
+    //         align-items: center;
+    //     }
+
+    //     &:hover{            
+    //         padding: 0;
+    //         justify-content: left;
+    //         align-items: center;            
+
+    //         .dots-h{
+    //             margin: 0;
+    //             display: block;
+    //             margin: 0;
+
+    //             *{
+    //                 margin: 0.5em 0;   
+    //             }
+    //         }
+    //     }
+    // }
+
+    .back{
+        align-items: center;
+        height: 14em;
+        display: flex;
+    
+        .stops{
+            display: flex;
+            height: 14em;
+            overflow: auto;
+            width: 13em;
+            align-items: center;
+        }
+
+        .stops::-webkit-scrollbar{
+            width: 2px;
+        }
+
+        .stops::-webkit-scrollbar-thumb{
+            border-radius: 1px;
+            background-color: gray;
+        }
+
+        .seats-section{
+            align-items: center;
+            padding-left:3em;
+        }
+
+        .seats-btn:hover{
+            background-color: var(--color2);
+            color: white;
         }
     }
 
-    p{
-        margin-top: -14px;
-        font-weight: 400;
-    }
-
-    .h{
-        font-size: smaller;
-        font-weight: 500;
-        opacity: 70%;
-    }
-
-    .ride-details{
-        margin-top: 1em;
-        grid-template-columns: repeat(3,7.7em);
-        gap: 0.5em;
+    &:hover{        
+        // .front{
+        //     display: none;            
+        // }
+        // .back{
+        //     display: flex;
+        // }
+        box-shadow: 0 0 15px rgba(128, 128, 128, 0.589);
     }
 }
 
 .dots-h{
     text-align: center;
     gap: 0.5em;
+    display: flex;
 
     .bi{
         color: var(--color2);
@@ -47,4 +127,43 @@
     .bi-geo-alt-fill{
         font-size: 1.2em;
     }
+}
+
+
+.switch-btn{
+    display: flex;
+    justify-content: right;
+    button{
+        border: none;
+        background-color: white;
+        color: var(--color2);
+    }
+}
+
+.close-btn{
+    margin-top: -1.5em;
+}
+
+.bold{
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-style: italic;
+}
+
+.cardImg{
+    border-radius: 50%;
+}
+
+.passenger-details{
+    height: 10em;
+    overflow: auto;
+}
+
+.passenger-details::-webkit-scrollbar{
+    width: 2px;
+}
+
+.passenger-details::-webkit-scrollbar-thumb{
+    border-radius: 1px;
+    background-color: gray;
 }

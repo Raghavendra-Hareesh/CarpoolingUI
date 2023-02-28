@@ -12,6 +12,14 @@ import { BookRideComponent } from './book-ride/book-ride.component';
 import { OfferRideComponent } from './offer-ride/offer-ride.component';
 import { RideCardComponent } from './ride-card/ride-card.component';
 import { HistoryComponent } from './history/history.component';
+import { SharedService } from './services/shared.service';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ProfileComponent } from './profile/profile.component';
+import { AuthService } from './services/auth.service';
+import { TokenInterceptorService } from './services/token-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -24,13 +32,17 @@ import { HistoryComponent } from './history/history.component';
     BookRideComponent,
     OfferRideComponent,
     RideCardComponent,
-    HistoryComponent
+    HistoryComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [SharedService,AuthService, {provide:HTTP_INTERCEPTORS,useClass:TokenInterceptorService,multi:true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -7,6 +7,8 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { LoginComponent } from './login/login.component';
 import { OfferRideComponent } from './offer-ride/offer-ride.component';
+import { ProfileComponent } from './profile/profile.component';
+import { AuthGuard } from './shared/auth.guard';
 import { SignUpComponent } from './sign-up/sign-up.component';
 
 const routes: Routes = [
@@ -15,15 +17,18 @@ const routes: Routes = [
     {path: 'signup', component:SignUpComponent},
     {path: '', component:SignUpComponent},
   ]},
+  
   { path: 'services', component: HeaderComponent, children : [
     {path: '', component:HomepageComponent},
     {path: 'home', component:HomepageComponent},
     {path: 'book', component:BookRideComponent},
     {path: 'offer', component:OfferRideComponent}    
-  ]},
+  ], canActivate:[AuthGuard]}, 
+  
   { path: 'user', component: HeaderComponent , children : [
-    { path: 'myrides', component:HistoryComponent}
-  ]}
+    { path: 'myrides', component:HistoryComponent},
+    { path: 'profile', component: ProfileComponent}
+  ], canActivate:[AuthGuard]}
 ];
 
 @NgModule({

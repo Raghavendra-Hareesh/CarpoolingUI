@@ -1,5 +1,5 @@
 .section{
-    width: 35vw;
+    width: 33vw;
 
     p{
         margin: 2.2em 5em 1em 5em;
@@ -23,9 +23,29 @@
     }
 }
 
-.bgImg{
+.scroll-region{
+    height: 69vh;    
+    padding: 0.5em 0;
+    overflow: scroll;
+}
+
+.scroll-region::-webkit-scrollbar{
+    width: 4px;
+}
+
+.scroll-region::-webkit-scrollbar-thumb {
+    background-color: darkgrey;
+    border-radius: 2px;
+}
+
+.bg-img{
     width: 100%;
     position: absolute;
     bottom: 0;
     z-index: -1;
+}
+
+.passenger-details{
+ margin-top: 1.7em;   
+ padding-left: 0.7em;
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SharedService } from '../services/shared.service';
 
 @Component({
   selector: 'app-header',
@@ -7,17 +8,35 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  user:any;
+
+  UserName:string = "";
+
+  UserImg:string = "../../assets/user.png";
+
+  constructor(public sharedService:SharedService) 
+  { 
+    sharedService.getUserByID(""+localStorage.getItem("ActiveUserID")).subscribe(data => {
+      this.user = data;
+
+      console.log(this.user);     
+
+      this.UserName = this.user.userName;
+
+      if(this.user.displayPicture != null)
+        this.UserImg = this.user.displayPicture;
+    }); 
+
+  }
+
+  logOutUser()
+  {
+    localStorage.removeItem("ActiveUserID");
+    localStorage.removeItem("Token");
+  }
 
   ngOnInit(): void {
   }
-  
-  UserName:string = "John Wills";
 
-
-  fun()
-  {
-    alert("Hi " + this.UserName);
-  }
 
 }

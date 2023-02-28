@@ -10,7 +10,7 @@
         line-height: 1em;
     }
 
-    .toggleBtn{
+    .toggle-btn{
         line-height: 1em;
         color: var(--color1);
         margin-bottom: -15px;
@@ -18,14 +18,14 @@
     }    
 }
 
-.bgImg{
+.bg-img{
     position: absolute;
     width: 100%;
     bottom: 0;
     z-index: -1;
 }
 
-form
+.reg-form
 {
     width: 20em;
     padding-top: 1em;
@@ -39,7 +39,7 @@ form
 
 }
 
-.inpBox{
+.inp-box{
         border-radius: 0;
         padding-bottom: 1;
         padding-left: 0;
@@ -57,39 +57,35 @@ form
 }
 
 
-.timeFilter{
+.time-filter{
     grid-template-columns: repeat(3,7.5em);
     gap: 0.5em;
-    
-    .timeBtn{
+    a{
+        width: 7.5em;
         letter-spacing: 1px;
         margin-right: 1em;
         font-size: 0.8em;
         font-weight: 400;
-        border: 1px solid var(--color2);
         border-radius: 2em;
         padding: 0.3em 0.3em;
         align-items: center;
         text-align: center;
-    }
-    
-    // .timeBtn:focus{
-    //     background-color: var(--color2);
-    //     color: white;
-    // }
+        text-decoration: none;
+    }    
 }
 
 .inactive{
     color: black;
-    background-color: white;
+    border: 1px solid var(--color2);
 }
 
 .active{
     background-color: var(--color2);
     color: white;
+    border: 1px solid var(--color2);
 }
 
-.submitBtn{
+.submit-btn{
     padding: 0.8em 2em;
     border: none;
     border-radius: 1.7em;
@@ -105,7 +101,7 @@ form
     margin-top: -10px;
 }
 
-.filterBox{
+.filter-box{
     box-shadow: 1px 1px 20px rgba(128, 128, 128, 0.293);
     height: 35em;
 }
@@ -132,28 +128,34 @@ form
 }
 
 
-.nextBtn{
+.next-btn{
     width: 100%;
     text-align: right;
-    font-size: medium;
-    font-weight: bold;
-    color: var(--color2);
-    letter-spacing: 1px;
-}
+    font-size: medium;    
 
-.seatsSection{
-    justify-content: space-between;
-
-    .seatsBtn{
-        border: 1px solid gray;
-        padding: 0.5em 1em;
-        border-radius: 50%;
-        margin-right: 1em;
-        text-decoration: none;
+    button
+    {
+        font-weight: bold;
+        color: var(--color2);
+        letter-spacing: 1px;
+        background: none;
+        border: none;
     }
 }
 
-.stopsInput{
+.seats-section{
+    justify-content: space-between;    
+}
+
+.seats-btn{
+    border: 1px solid gray;
+    padding: 0.5em 1em;
+    border-radius: 50%;
+    margin-right: 1em;
+    text-decoration: none;
+}
+
+.stops-input{
     padding-top: 0.8em;
     height: 15em;
     overflow: scroll;
@@ -164,20 +166,19 @@ form
     }
 
     .dots{
-        margin-left: 1em;        
-        margin-top: 0;
+        margin-top: 2.3em;
     }
 }
 
-.stopsInput::-webkit-scrollbar{
+.stops-input::-webkit-scrollbar{
     width: 4px;
 }
-.stopsInput::-webkit-scrollbar-thumb {
+.stops-input::-webkit-scrollbar-thumb {
     background-color: darkgrey;
     border-radius: 2px;
 }
 
-.priceInput{
+.price-input{
     width: 3em;
     margin-left: 2em;
     border: none;
@@ -185,19 +186,18 @@ form
     background: none;
 }
 
-.priceInput:focus{
+.price-input:focus{
     border-color: none;
     box-shadow: none;
 }
 
-.addBtn{
+.add-btn{
     border: none;
     height: fit-content;
     margin-top: auto;
     padding-bottom: 0.5em;
     font-size: large;
     background:none;
-    // border-bottom: 1px solid gray;
     color: var(--color2);
     margin-left: -1em;
 }
@@ -207,8 +207,28 @@ form
     box-shadow: none;
     border-bottom: 2px solid rgb(3, 146, 223);
 
-    .addBtn
+    .add-btn
     {
         border-bottom: 2px solid rgb(3, 146, 223);
     }
+}
+
+.disabled{
+    border: 1px solid rgba(128, 128, 128, 0.4);
+    color:  rgba(128, 128, 128, 0.4);
+    cursor: default;
+}
+
+.available{
+    border: 1px solid var(--color2);
+    color: black;
+}
+
+.invisible{
+    visibility: hidden;
+}
+
+.visible
+{
+    visibility: visible;
 }

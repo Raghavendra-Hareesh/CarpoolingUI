@@ -1,39 +1,83 @@
 <div class="ride-card border p-3 pb-1">
-    <div class="d-flex card-top">
-        <h1 class="fw-bold">Clint Barton</h1>
-        <img src="../../assets/user.png" height="40px">
-    </div>                
-    <div class="d-grid ride-details">
-        <div>
-            <p class="text-secondary h">From</p>
-            <p>cincinatti</p>
+    <div class="front" *ngIf="switchCard" (click)="(path=='bookedRides' || path=='passenger')?switchCard=true:switchCard=false; updatePassengerNames();">    
+        <div class="d-flex card-top">
+            <h1 class="fw-bold">{{username | titlecase}}</h1>
+            <img [src]="userImg" height="40px" class="cardImg">
+        </div>                
+        <div class="d-grid ride-details">
+            <div>
+                <p class="text-secondary h">From</p>
+                <p>{{ride.startPoint | titlecase}}</p>
+            </div>
+            <div class="d-flex dots-h mt-1">
+                <div class="bi bi-circle-fill"></div>
+                <div class="bi bi-circle-fill small text-secondary" *ngFor="let item of [].constructor(3)"></div>
+                <div class="bi bi-geo-alt-fill"></div>
+            </div>
+            <div>
+                <p class="text-secondary h">To</p>
+                <p>{{ride.endPoint | titlecase}}</p>
+            </div>
+            <div>
+                <p class="text-secondary h">Date</p>
+                <p>{{ride.date}}</p>
+            </div>
+            <div></div>
+            <div>
+                <p class="text-secondary h">Time</p>
+                <p>{{ride.time}}</p>
+            </div>
+            <div>
+                <p class="text-secondary h">Price</p>
+                <p>{{ride.price}}</p>
+            </div>
+            <div></div>
+            <div>
+                <p class="text-secondary h" *ngIf="path=='book'">Seat Availability</p>
+                <p class="text-secondary h" *ngIf="path!='book'">Seats</p>
+                <p>{{ride.totalSeats}}</p>
+            </div>
         </div>
-        <div class="d-flex dots-h">
+
+        <div class="switch-btn close-btn" *ngIf="path=='passenger'"><button (click)="sharedService.showBookings=false">close</button></div>
+    </div>
+
+    <!-- <div class="middle" *ngIf="!switchCard && path=='book'">
+        <div class=dots-h">
             <div class="bi bi-circle-fill"></div>
-            <div class="bi bi-circle-fill small text-secondary" *ngFor="let item of [].constructor(4)"></div>
+            <div class="bi bi-circle-fill small text-secondary" *ngFor="let item of [].constructor(3)"></div>
             <div class="bi bi-geo-alt-fill"></div>
         </div>
-        <div>
-            <p class="text-secondary h">To</p>
-            <p>Minneapolis</p>
+    </div> -->
+
+    <div class="back ps-3 pt-2 pb-4" *ngIf="!switchCard && path=='book'">
+        <div class="stops">
+            <div class="d-block dots-h mt-1">
+                <div class="bi bi-circle-fill mb-2"></div>
+                <div class="bi bi-circle-fill small text-secondary mb-2" *ngFor="let item of [].constructor(stopsArr.length-2)"></div>
+                <div class="bi bi-geo-alt-fill"></div>
+            </div>
+            <div class="ms-1 mt-2 pt-1">
+                <div *ngFor="let stop of stopsArr; let i=index" class="text-secondary mb-2" [ngClass]="(i==fromStopIndex || i==toStopIndex)?'bold':''">{{stop | titlecase}}</div>
+            </div>
         </div>
-        <div>
-            <p class="text-secondary h">Date</p>
-            <p>xx/mm/yyyy</p>
+        <div class="seats-section pt-3">
+            <p class="h me-1 mt-4">Seats Required </p>
+            <button *ngFor="let button of [].constructor(buttons); index as i" class="seats-btn" [ngClass]="(selectedSeats == i+1)?'active':'inactive'" (click)="selectedSeats=i+1">{{i+1}}</button>
+            <button class="btn btn-warning text-light my-3" (click)="bookRide();">Book Now</button>
+            <div class="switch-btn mt-3"><button (click)="switchCard=true;">Back</button></div>
+        </div>        
+    </div>    
+
+    
+    <div class="back ps-3 pt-2 pb-4" *ngIf="!switchCard && path=='history'">
+        <div *ngIf="PassengerNames.length != 0">
+            <h2 class="mb-2">Passengers List</h2>
+            <p *ngFor="let PassengerName of PassengerNames" type="button" (click)="updateBookingDetails(PassengerName.split('--')[0]);">{{PassengerName.split("--")[1] | titlecase}}</p>
         </div>
-        <div></div>
-        <div>
-            <p class="text-secondary h">Time</p>
-            <p>5am - 9am</p>
+        <div *ngIf="PassengerNames.length == 0">
+            <h4>No Bookings Yet !!</h4>
         </div>
-        <div>
-            <p class="text-secondary h">Price</p>
-            <p>180$</p>
-        </div>
-        <div></div>
-        <div>
-            <p class="text-secondary h">Seat Availability</p>
-            <p>02</p>
-        </div>
-    </div>
+        <div class="switch-btn ms-5 h4"><button (click)="switchCard=true;sharedService.showBookings = false;">Back</button></div>
+    </div>    
 </div>

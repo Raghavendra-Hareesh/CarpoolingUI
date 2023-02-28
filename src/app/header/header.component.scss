@@ -1,13 +1,14 @@
-.userImg{
-    height: 2.5em;
+.user-img{
+    height: 3em;
+    border-radius: 50%;
 }
 
 .logo{
     height: 5em;
 }
 
-.UserName{
-    line-height: 2.5em;
+.user-name{
+    line-height: 3em;
     margin: 0 0.5em;
     font-weight: 500;
 }
@@ -19,4 +20,27 @@
     margin-right: 3em;
     padding-left: 4em;
     padding-right: 8em;    
+}
+
+.dropdown-menu{
+    text-align:center;
+    min-width: 0;  
+    padding: 0;  
+    border-radius: 2px;
+    border: none;
+    box-shadow: 1px 1px 6px rgba(128, 128, 128, 0.41);
+    inset: 6px 83px auto auto;
+
+    .dropdown-item{
+        margin: 0;
+        padding: 0.6em 1.9em;
+        font-size: medium;
+        color: gray;
+    }
+
+    .dropdown-item:hover, .active{
+        background-color: var(--color2);
+        color: white;
+    }
+    
 }

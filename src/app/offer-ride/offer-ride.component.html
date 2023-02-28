@@ -1,54 +1,62 @@
-<img src="../../assets/img4.png" class="bgImg">
+<img src="../../assets/img4.png" class="bg-img">
+
 
 <div class="d-flex mt-2">
     <div class="d-flex justify-content-center my-4 filter-section">
-        <div class="border rounded p-4 pb-1 bg-light filterBox">
+        <div class="border rounded p-4 pb-1 bg-light filter-box">
             <div class="d-flex filter-title">
                 <p class="h4">Offer a Ride</p>
-                <a routerLink="/services/book"><div class="bi bi-toggle-on h2 toggleBtn" type="button"></div></a>
+                <a routerLink="/services/book"><div class="bi bi-toggle-on h2 toggle-btn" type="button"></div></a>
             </div>        
             <p class="text-secondary fw-light caption">we get you the matches asap !</p>
-            <div class="d-flex">
-                <form>
-                    <div class="form-floating mb-3">
-                        <input type="email" class="form-control inpBox mt-2" id="floatingInput" placeholder="From">
-                        <label for="floatingInput">From</label> 
+            <form [formGroup]="OfferForm" ngNativeValidate>
+                <div class="d-flex">
+                    <div class="reg-form">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control inp-box mt-2" id="floating-input" placeholder="From" formControlName="FromPlace" required>
+                            <label for="floating-input">From</label> 
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control inp-box mt-4" id="floating-input" placeholder="To" formControlName="ToPlace" required>
+                            <label for="floating-input">To</label>
+                        </div>                
+                        <div class="mb-3">
+                            <p class="label">Date</p>
+                            <input type="text" class="form-control inp-box" placeholder="xx/mm/yyyy" formControlName="Date" required (keyup)="getTimeSlots()">                
+                        </div>
+                        
+                        <p>Time:</p>
+                        <div class="d-grid time-filter">
+                            <div *ngFor="let time of timesArray; let i=index">
+                                <input type="checkbox" class="d-none" id=i>
+                                <label for=i><a type="button" [ngClass]="(selectedTime==time && !disabled[i])?'active':'inactive'" [ngClass]="(disabled[i])?'disabled':'available'" (click)="(!disabled[i])?selectedTime=time:''">{{time}}</a></label>
+                            </div>
+                        </div>
                     </div>
-                    <div class="form-floating mb-3">
-                        <input type="email" class="form-control inpBox mt-4" id="floatingInput" placeholder="To">
-                        <label for="floatingInput">To</label>
-                    </div>                
-                    <div class="mb-3">
-                        <p class="label">Date</p>
-                        <input type="text" class="form-control inpBox" placeholder="xx/mm/yyyy">                
+                    <div class="ms-3 dots">
+                        <div class="bi bi-circle-fill"></div>
+                        <div *ngFor="let item of [].constructor(4)">
+                            <div class="bi bi-circle-fill small text-secondary"></div>
+                        </div>
+                        <div class="bi bi-geo-alt-fill"></div>
                     </div>
-                    
-                    <p>Time:</p>
-                    <div class="d-grid timeFilter">
-                        <button *ngFor="let time of timesArray; index as i" class="timeBtn" [ngClass]="(selectedTime==time)?'active':'inactive'" type="button" (click)="selectedTime=time">{{time}}</button>
-                    </div>
-                </form>
-                <div class="ms-3 dots">
-                    <div class="bi bi-circle-fill"></div>
-                    <div *ngFor="let item of [].constructor(4)">
-                        <div class="bi bi-circle-fill small text-secondary"></div>
-                    </div>
-                    <div class="bi bi-geo-alt-fill"></div>
-                </div>
-            </div>
-            <div class="my-4 py-3 pe-2 nextBtn"><a type="button" (click)="showMore=true;">Next >></a></div>
+                </div>                
+                <p class="text-danger pt-2" [ngClass]="validTime?'invisible':'visible'">Please choose the time</p>
+                <div class="my-4 pb-4 pe-2 next-btn"><button type="submit" (click)="validateForm()">Next >></button></div>
+            </form>            
         </div>
     </div>
     <div class="my-4" *ngIf="showMore">
-        <div class="border rounded p-4 pb-1 bg-light filterBox">
+        <div class="border rounded p-4 pb-1 bg-light filter-box">
             <p class="h4">Offer a Ride</p>
             <p class="text-secondary fw-light caption">we get you the matches asap !</p>               
-                <div class="stopsInput d-flex">
+            <form #moreDetails="ngForm">
+                <div class="stops-input d-flex">
                     <div>
                         <div class="form-floating mb-4 d-flex" *ngFor="let stop of [].constructor(stops);index as i">
-                            <input type="text" class="form-control mt-2 inpBox" id="floatingInput" placeholder="stop">
-                            <label for="floatingInput">stop {{i+1}}</label> 
-                            <button *ngIf="i+1==stops" type="button" (click)="stops = stops+1; x = x+4" class="addBtn">+</button>
+                            <input type="text" class="form-control mt-2 inp-box" id="floating-input" placeholder="stop" name="stop{{i}}" ngModel>
+                            <label for="floating-input">stop {{i+1}}</label> 
+                            <button *ngIf="i+1==stops" type="button" (click)="stops = stops+1;x = this.x+4;" class="add-btn">+</button>
                         </div>
                     </div>
                     <div>
@@ -60,22 +68,24 @@
                     </div>
                 </div>                
 
-                <div class="d-flex seatsSection mb-2 pb-1">
+                <div class="d-flex seats-section mb-3 pb-1">
                     <div>
                         <p>Available Seats</p>
                         <div class="d-flex">
-                            <a class="seatsBtn" type="button" *ngFor="let item of [].constructor(3); index as i" [ngClass]="(selectedSeat==i)?'active':'inactive'" (click)="selectedSeat=i">{{i+1}}</a>
-                            <!-- <a class="seatsBtn" type="button">2</a>
-                            <a class="seatsBtn" type="button">3</a> -->
+                            <div *ngFor="let item of [].constructor(3); index as i">
+                                <input type="checkbox" id="i" class="d-none" name="seats">
+                                <label for="i"><a class="seats-btn" type="button" [ngClass]="(selectedSeat==i)?'active':'inactive'" (click)="selectedSeat=i">{{i+1}}</a></label>
+                            </div>
                         </div>
                     </div>
                     <div>
                         <p class="ms-5 ps-3">Price</p>
-                        <input type="text" class="priceInput h2" value="180$">
+                        <input type="text" class="price-input h2" placeholder="180$" name="Price"  ngModel>
                     </div>
                 </div>
 
-                <button class="submitBtn m-4 ms-0">Submit</button>              
+                <button class="submit-btn me-4 mt-4" type="submit"(click)="postOffer(moreDetails.value)" >Submit</button>              
+            </form>
         </div>
     </div>
 </div>

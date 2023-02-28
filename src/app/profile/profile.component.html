@@ -1,0 +1,62 @@
+<div class="container-xl px-4 mt-4">    
+    <hr class="mt-0 mb-4">
+    <div class="row">
+        <div class="col-xl-4">
+            <div class="card mb-4 mb-xl-0 pb-5">
+                <div class="card-header">Profile Picture</div>
+                <div class="card-body text-center">                    
+                    <img class="img-account-profile rounded-circle mb-2" [src]="imageLink">
+                    <div class="small font-italic text-muted mb-4">JPG or PNG not larger than 5 MB</div>                    
+                    <div class="d-flex justify-content-center"><input type="file" class="form-control mt-4 mb-1 w-75" (change)="addImage($event)"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-8">
+            <div class="card mb-4">
+                <div class="card-header">User Details</div>
+                <div class="card-body">
+                    <form [formGroup]="ProfileForm" (submit)="updateUserDetails()">
+                        <div class="row gx-3 mb-3">
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="inputFirstName">First name</label>
+                                <input class="form-control" id="inputFirstName" type="text" placeholder="Enter Your First Name" [value]="(user.first_Name)?user.first_Name:''" formControlName="FirstName" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="inputLastName">Last name</label>
+                                <input class="form-control" id="inputLastName" type="text" placeholder="Enter Your Last Name" [value]="(user.last_Name)?user.last_Name:''" formControlName="LastName">
+                            </div>
+                        </div>
+                        <div class="row gx-3 mb-3">
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="inputUsername">Username</label>
+                                <input class="form-control" id="inputUsername" type="text" [value]="(user.userName)?user.userName:''" formControlName="UserName">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="inputEmailAddress">Email address</label>
+                                <input class="form-control" id="inputEmailAddress" type="email" placeholder="Enter your email address" [value] = user.email disabled>
+                            </div>                            
+                        </div>                        
+                        <div class="mb-3 row gx-3">
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="inputEmailAddress">Gender</label>
+                                
+                                <select name="gender" class="form-select" formControlName="Gender">
+                                    <option [selected]="(user.gender == '')?true:''">-- Select Your Gender --</option>
+                                    <option value="Male" [selected]="(user.gender == 'Male')?true:''">Male</option>
+                                    <option value="Female" [selected]="(user.gender == 'Female')?true:''">Female</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="inputPhone">Phone number</label>
+                                <input class="form-control" id="inputPhone" type="tel" placeholder="Enter your phone number" [value]="(user.phoneNumber)?user.phoneNumber:''" formControlName="Phone">
+                            </div>
+                        </div>
+                        <button class="btn save-btn" type="submit">Save changes</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<img src="../../assets/img4.png" class="bg-img">

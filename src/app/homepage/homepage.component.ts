@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SharedService } from '../services/shared.service';
 
 @Component({
   selector: 'app-homepage',
@@ -7,11 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomepageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private sharedSerive:SharedService) { }
 
-  ngOnInit(): void {
-  }
+  UserName:string = "User";
+  user:any = [];
 
-  UserName:string = "John";
+  ngOnInit(): void 
+  {
+    this.sharedSerive.getUserByID("" + localStorage.getItem("ActiveUserID")).subscribe(data => {this.user = data; this.UserName = this.user.first_Name;});
+  }  
 
 }
